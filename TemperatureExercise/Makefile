@@ -1,2 +1,3 @@
-COMPONENT=TempAppC
+COMPONENT=BlinkAppC
 include $(MAKERULES)
+

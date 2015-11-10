@@ -40,14 +40,9 @@
  * 94704.  Attention:  Intel License Inquiry.
  */
 
-/**
- * Implementation for Blink application.  Toggle the red LED when a
- * Timer fires.
- **/
-
 #include "Timer.h"
 
-module BlinkC @safe()
+module TempC @safe()
 {
   uses interface Timer<TMilli> as Timer0;
   uses interface Leds;
@@ -55,31 +50,5 @@ module BlinkC @safe()
 }
 implementation
 {
-
-  uint32_t counter = 0;
-
-  event void Boot.booted()
-  {
-    call Timer0.startPeriodic( 1000 );
-  }
-
-  event void Timer0.fired()
-  {
-    counter++;
-    if (counter % 2 == 1)
-      call Leds.led0On();
-    else
-      call Leds.led0Off();
-
-    if (counter % 4 >= 2)
-      call Leds.led1On();
-    else
-      call Leds.led1Off();
-
-    if (counter % 8 >= 4)
-      call Leds.led2On();
-    else
-      call Leds.led2Off();
-  }
 
 }
