@@ -1,3 +1,3 @@
-COMPONENT=TempAppC
-PFLAGS += -I$(TOSDIR)/lib/printf
+COMPONENT=BlinkAppC
 include $(MAKERULES)
+
