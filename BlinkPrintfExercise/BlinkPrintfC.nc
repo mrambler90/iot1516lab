@@ -20,7 +20,9 @@ implementation
   event void Timer0.fired()
   {
     counter++;
-    printf("Timer triggered! I'm at clock %d!", counter);
+    printf("Timer triggered! I'm at clock %d!\n", counter);
+    printfflush();
+
     if (counter % 2 == 1)
       call Leds.led0On();
     else

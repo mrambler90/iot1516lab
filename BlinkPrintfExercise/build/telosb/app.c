@@ -201,9 +201,9 @@ typedef int32_t ufs_daddr_t;
 typedef int32_t ufs_time_t;
 typedef u_int32_t uid_t;
 # 44 "/usr/bin/../lib/gcc/msp430/4.6.3/../../../../msp430/include/string.h" 3
-extern void *memset(void *arg_0x2b8b27d9c980, int arg_0x2b8b27d9cbe8, size_t arg_0x2b8b27da3020);
+extern void *memset(void *arg_0x2b4dad816980, int arg_0x2b4dad816be8, size_t arg_0x2b4dad81d020);
 #line 65
-extern void *memset(void *arg_0x2b8b27db5b10, int arg_0x2b8b27db5d78, size_t arg_0x2b8b27db4060);
+extern void *memset(void *arg_0x2b4dad82fb10, int arg_0x2b4dad82fd78, size_t arg_0x2b4dad82e060);
 # 62 "/usr/bin/../lib/gcc/msp430/4.6.3/../../../../msp430/include/stdlib.h" 3
 #line 59
 typedef struct __nesc_unnamed4242 {
@@ -358,7 +358,7 @@ struct _reent {
 
   int __sdidinit;
 
-  void (*__cleanup)(struct _reent *arg_0x2b8b27df8290);
+  void (*__cleanup)(struct _reent *arg_0x2b4dad872290);
 
 
   struct _Bigint *_result;
@@ -398,7 +398,7 @@ struct _reent {
   struct _atexit _atexit0;
 
 
-  void (**_sig_func)(int arg_0x2b8b27dfd300);
+  void (**_sig_func)(int arg_0x2b4dad877300);
 
 
 
@@ -713,99 +713,6 @@ static inline void TOSH_MAKE_FLASH_CS_OUTPUT()  ;
 static inline void TOSH_SET_FLASH_HOLD_PIN()  ;
 #line 89
 static inline void TOSH_MAKE_FLASH_HOLD_OUTPUT()  ;
-# 39 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Timer.h"
-enum __nesc_unnamed4253 {
-  MSP430TIMER_CM_NONE = 0, 
-  MSP430TIMER_CM_RISING = 1, 
-  MSP430TIMER_CM_FALLING = 2, 
-  MSP430TIMER_CM_BOTH = 3, 
-
-  MSP430TIMER_STOP_MODE = 0, 
-  MSP430TIMER_UP_MODE = 1, 
-  MSP430TIMER_CONTINUOUS_MODE = 2, 
-  MSP430TIMER_UPDOWN_MODE = 3, 
-
-  MSP430TIMER_TACLK = 0, 
-  MSP430TIMER_TBCLK = 0, 
-  MSP430TIMER_ACLK = 1, 
-  MSP430TIMER_SMCLK = 2, 
-  MSP430TIMER_INCLK = 3, 
-
-  MSP430TIMER_CLOCKDIV_1 = 0, 
-  MSP430TIMER_CLOCKDIV_2 = 1, 
-  MSP430TIMER_CLOCKDIV_4 = 2, 
-  MSP430TIMER_CLOCKDIV_8 = 3
-};
-#line 75
-#line 62
-typedef struct __nesc_unnamed4254 {
-
-  int ccifg : 1;
-  int cov : 1;
-  int out : 1;
-  int cci : 1;
-  int ccie : 1;
-  int outmod : 3;
-  int cap : 1;
-  int clld : 2;
-  int scs : 1;
-  int ccis : 2;
-  int cm : 2;
-} msp430_compare_control_t;
-#line 87
-#line 77
-typedef struct __nesc_unnamed4255 {
-
-  int taifg : 1;
-  int taie : 1;
-  int taclr : 1;
-  int _unused0 : 1;
-  int mc : 2;
-  int id : 2;
-  int tassel : 2;
-  int _unused1 : 6;
-} msp430_timer_a_control_t;
-#line 102
-#line 89
-typedef struct __nesc_unnamed4256 {
-
-  int tbifg : 1;
-  int tbie : 1;
-  int tbclr : 1;
-  int _unused0 : 1;
-  int mc : 2;
-  int id : 2;
-  int tbssel : 2;
-  int _unused1 : 1;
-  int cntl : 2;
-  int tbclgrp : 2;
-  int _unused2 : 1;
-} msp430_timer_b_control_t;
-# 41 "/home/mrambler/tinyos-main/tos/lib/timer/Timer.h"
-typedef struct __nesc_unnamed4257 {
-#line 41
-  int notUsed;
-} 
-#line 41
-TSecond;
-typedef struct __nesc_unnamed4258 {
-#line 42
-  int notUsed;
-} 
-#line 42
-TMilli;
-typedef struct __nesc_unnamed4259 {
-#line 43
-  int notUsed;
-} 
-#line 43
-T32khz;
-typedef struct __nesc_unnamed4260 {
-#line 44
-  int notUsed;
-} 
-#line 44
-TMicro;
 # 40 "/usr/bin/../lib/gcc/msp430/4.6.3/include/stdarg.h" 3
 typedef __builtin_va_list __gnuc_va_list;
 #line 102
@@ -888,7 +795,7 @@ typedef nx_struct cc2420_packet_t {
   nx_uint8_t data[];
 } __attribute__((packed)) cc2420_packet_t;
 #line 179
-enum __nesc_unnamed4261 {
+enum __nesc_unnamed4253 {
 
   MAC_HEADER_SIZE = sizeof(cc2420_header_t ) - 1, 
 
@@ -1145,7 +1052,7 @@ enum cc2420_security_enums {
 };
 
 
-enum __nesc_unnamed4262 {
+enum __nesc_unnamed4254 {
 
   CC2420_INVALID_TIMESTAMP = 0x80000000L
 };
@@ -1158,7 +1065,7 @@ typedef uint8_t am_id_t;
 typedef uint8_t am_group_t;
 typedef uint16_t am_addr_t;
 
-enum __nesc_unnamed4263 {
+enum __nesc_unnamed4255 {
   AM_BROADCAST_ADDR = 0xffff
 };
 
@@ -1170,7 +1077,7 @@ enum __nesc_unnamed4263 {
 
 
 
-enum __nesc_unnamed4264 {
+enum __nesc_unnamed4256 {
   TOS_AM_GROUP = 0x22, 
   TOS_AM_ADDRESS = 1
 };
@@ -1179,14 +1086,14 @@ typedef uint8_t uart_id_t;
 
 
 
-enum __nesc_unnamed4265 {
+enum __nesc_unnamed4257 {
   HDLC_FLAG_BYTE = 0x7e, 
   HDLC_CTLESC_BYTE = 0x7d
 };
 
 
 
-enum __nesc_unnamed4266 {
+enum __nesc_unnamed4258 {
   TOS_SERIAL_ACTIVE_MESSAGE_ID = 0, 
   TOS_SERIAL_CC1000_ID = 1, 
   TOS_SERIAL_802_15_4_ID = 2, 
@@ -1194,7 +1101,7 @@ enum __nesc_unnamed4266 {
 };
 
 
-enum __nesc_unnamed4267 {
+enum __nesc_unnamed4259 {
   SERIAL_PROTO_ACK = 67, 
   SERIAL_PROTO_PACKET_ACK = 68, 
   SERIAL_PROTO_PACKET_NOACK = 69, 
@@ -1289,9 +1196,102 @@ typedef nx_struct printf_msg {
   nx_uint8_t buffer[28];
 } __attribute__((packed)) printf_msg_t;
 
-enum __nesc_unnamed4268 {
+enum __nesc_unnamed4260 {
   AM_PRINTF_MSG = 100
 };
+# 39 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Timer.h"
+enum __nesc_unnamed4261 {
+  MSP430TIMER_CM_NONE = 0, 
+  MSP430TIMER_CM_RISING = 1, 
+  MSP430TIMER_CM_FALLING = 2, 
+  MSP430TIMER_CM_BOTH = 3, 
+
+  MSP430TIMER_STOP_MODE = 0, 
+  MSP430TIMER_UP_MODE = 1, 
+  MSP430TIMER_CONTINUOUS_MODE = 2, 
+  MSP430TIMER_UPDOWN_MODE = 3, 
+
+  MSP430TIMER_TACLK = 0, 
+  MSP430TIMER_TBCLK = 0, 
+  MSP430TIMER_ACLK = 1, 
+  MSP430TIMER_SMCLK = 2, 
+  MSP430TIMER_INCLK = 3, 
+
+  MSP430TIMER_CLOCKDIV_1 = 0, 
+  MSP430TIMER_CLOCKDIV_2 = 1, 
+  MSP430TIMER_CLOCKDIV_4 = 2, 
+  MSP430TIMER_CLOCKDIV_8 = 3
+};
+#line 75
+#line 62
+typedef struct __nesc_unnamed4262 {
+
+  int ccifg : 1;
+  int cov : 1;
+  int out : 1;
+  int cci : 1;
+  int ccie : 1;
+  int outmod : 3;
+  int cap : 1;
+  int clld : 2;
+  int scs : 1;
+  int ccis : 2;
+  int cm : 2;
+} msp430_compare_control_t;
+#line 87
+#line 77
+typedef struct __nesc_unnamed4263 {
+
+  int taifg : 1;
+  int taie : 1;
+  int taclr : 1;
+  int _unused0 : 1;
+  int mc : 2;
+  int id : 2;
+  int tassel : 2;
+  int _unused1 : 6;
+} msp430_timer_a_control_t;
+#line 102
+#line 89
+typedef struct __nesc_unnamed4264 {
+
+  int tbifg : 1;
+  int tbie : 1;
+  int tbclr : 1;
+  int _unused0 : 1;
+  int mc : 2;
+  int id : 2;
+  int tbssel : 2;
+  int _unused1 : 1;
+  int cntl : 2;
+  int tbclgrp : 2;
+  int _unused2 : 1;
+} msp430_timer_b_control_t;
+# 41 "/home/mrambler/tinyos-main/tos/lib/timer/Timer.h"
+typedef struct __nesc_unnamed4265 {
+#line 41
+  int notUsed;
+} 
+#line 41
+TSecond;
+typedef struct __nesc_unnamed4266 {
+#line 42
+  int notUsed;
+} 
+#line 42
+TMilli;
+typedef struct __nesc_unnamed4267 {
+#line 43
+  int notUsed;
+} 
+#line 43
+T32khz;
+typedef struct __nesc_unnamed4268 {
+#line 44
+  int notUsed;
+} 
+#line 44
+TMicro;
 # 43 "/home/mrambler/tinyos-main/tos/types/Leds.h"
 enum __nesc_unnamed4269 {
   LEDS_LED0 = 1 << 0, 
@@ -1705,7 +1705,7 @@ static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__VectorTimerX1__fired(v
 #line 39
 static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default__fired(
 # 51 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0x2b8b283a5458);
+uint8_t arg_0x2b4dade84900);
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerEvent.nc"
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__VectorTimerX0__fired(void );
 #line 39
@@ -1715,7 +1715,7 @@ static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__VectorTimerX1__fired(v
 #line 39
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(
 # 51 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0x2b8b283a5458);
+uint8_t arg_0x2b4dade84900);
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Timer.nc"
 static uint16_t /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Timer__get(void );
 static bool /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Timer__isOverflowPending(void );
@@ -1863,11 +1863,11 @@ static void McuSleepC__McuSleep__sleep(void );
 # 67 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t SchedulerBasicP__TaskBasic__postTask(
 # 56 "/home/mrambler/tinyos-main/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0x2b8b282c7650);
+uint8_t arg_0x2b4dadd41650);
 # 75 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void SchedulerBasicP__TaskBasic__default__runTask(
 # 56 "/home/mrambler/tinyos-main/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0x2b8b282c7650);
+uint8_t arg_0x2b4dadd41650);
 # 57 "/home/mrambler/tinyos-main/tos/interfaces/Scheduler.nc"
 static void SchedulerBasicP__Scheduler__init(void );
 #line 72
@@ -2000,7 +2000,7 @@ error_t error);
 # 110 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 static void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendDone(
 # 48 "/home/mrambler/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x2b8b287fb650, 
+am_id_t arg_0x2b4dae272650, 
 # 103 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -2013,7 +2013,7 @@ error_t error);
 # 75 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 static error_t /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__send(
 # 46 "/home/mrambler/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x2b8b287fc430, 
+uint8_t arg_0x2b4dae273430, 
 # 67 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -2027,7 +2027,7 @@ uint8_t len);
 #line 100
 static void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default__sendDone(
 # 46 "/home/mrambler/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x2b8b287fc430, 
+uint8_t arg_0x2b4dae273430, 
 # 96 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -2066,7 +2066,7 @@ uint8_t len);
 # 80 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 static error_t /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__send(
 # 47 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x2b8b28835508, 
+am_id_t arg_0x2b4dae2ab508, 
 # 80 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -2117,7 +2117,7 @@ message_t *
 
 /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(
 # 48 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x2b8b28834780, 
+am_id_t arg_0x2b4dae2aa780, 
 # 71 "/home/mrambler/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -2151,10 +2151,8 @@ message_t * amsg,
 
 
 am_id_t t);
-# 113 "/home/mrambler/tinyos-main/tos/interfaces/SplitControl.nc"
-static void SerialP__SplitControl__default__startDone(error_t error);
-#line 138
-static void SerialP__SplitControl__default__stopDone(error_t error);
+# 104 "/home/mrambler/tinyos-main/tos/interfaces/SplitControl.nc"
+static error_t SerialP__SplitControl__start(void );
 # 75 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void SerialP__stopDoneTask__runTask(void );
 #line 75
@@ -2188,7 +2186,7 @@ static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__receive
 # 75 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 static error_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__send(
 # 51 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28977020, 
+uart_id_t arg_0x2b4dae3ed020, 
 # 67 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -2202,7 +2200,7 @@ uint8_t len);
 #line 100
 static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(
 # 51 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28977020, 
+uart_id_t arg_0x2b4dae3ed020, 
 # 96 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -2220,7 +2218,7 @@ message_t *
 
 /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(
 # 50 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b289793e0, 
+uart_id_t arg_0x2b4dae3ef3e0, 
 # 71 "/home/mrambler/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -2233,17 +2231,17 @@ uint8_t len);
 # 31 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(
 # 54 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28976308, 
+uart_id_t arg_0x2b4dae3ec308, 
 # 31 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t dataLinkLen);
 #line 15
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(
 # 54 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28976308);
+uart_id_t arg_0x2b4dae3ec308);
 # 23 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__dataLinkLength(
 # 54 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28976308, 
+uart_id_t arg_0x2b4dae3ec308, 
 # 23 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t upperLen);
 # 81 "/home/mrambler/tinyos-main/tos/lib/serial/SendBytePacket.nc"
@@ -2305,19 +2303,19 @@ static error_t HdlcTranslateC__SerialFrameComm__putData(uint8_t data);
 # 65 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__ResourceConfigure__unconfigure(
 # 44 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a78b38);
+uint8_t arg_0x2b4dae4eeb38);
 # 59 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__ResourceConfigure__configure(
 # 44 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a78b38);
+uint8_t arg_0x2b4dae4eeb38);
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartConfigure.nc"
 static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(
 # 49 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a73e20);
+uint8_t arg_0x2b4dae4e9e20);
 # 48 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__send(
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a77860, 
+uint8_t arg_0x2b4dae4ed860, 
 # 44 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -2327,13 +2325,13 @@ uint16_t len);
 #line 79
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a77860, 
+uint8_t arg_0x2b4dae4ed860, 
 # 79 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t byte);
 #line 99
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a77860, 
+uint8_t arg_0x2b4dae4ed860, 
 # 95 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -2343,7 +2341,7 @@ uint16_t len, error_t error);
 #line 57
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a77860, 
+uint8_t arg_0x2b4dae4ed860, 
 # 53 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -2355,41 +2353,41 @@ static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Counter__overflow(void );
 # 120 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a74be8);
+uint8_t arg_0x2b4dae4eabe8);
 # 97 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a74be8);
+uint8_t arg_0x2b4dae4eabe8);
 # 102 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__granted(
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a74be8);
+uint8_t arg_0x2b4dae4eabe8);
 # 128 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a74be8);
+uint8_t arg_0x2b4dae4eabe8);
 # 120 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__release(
 # 43 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a7d8f0);
+uint8_t arg_0x2b4dae4f38f0);
 # 97 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__immediateRequest(
 # 43 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a7d8f0);
+uint8_t arg_0x2b4dae4f38f0);
 # 102 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(
 # 43 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a7d8f0);
+uint8_t arg_0x2b4dae4f38f0);
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartInterrupts__rxDone(
 # 51 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a8f948, 
+uint8_t arg_0x2b4dae505948, 
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 uint8_t data);
 #line 49
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartInterrupts__txDone(
 # 51 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a8f948);
+uint8_t arg_0x2b4dae505948);
 # 143 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430Usart.nc"
 static void HplMsp430Usart1P__Usart__enableUartRx(void );
 #line 123
@@ -2446,13 +2444,13 @@ static bool /*Msp430Counter32khzC.Counter*/Msp430CounterC__0__Counter__isOverflo
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__rxDone(
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0x2b8b28bc6220, 
+uint8_t arg_0x2b4dae63c220, 
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 uint8_t data);
 #line 49
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__txDone(
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0x2b8b28bc6220);
+uint8_t arg_0x2b4dae63c220);
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__RawInterrupts__rxDone(uint8_t data);
 #line 49
@@ -2466,33 +2464,33 @@ static resource_client_id_t /*Msp430UsartShare1P.ArbiterC.Queue*/FcfsResourceQue
 # 61 "/home/mrambler/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__default__immediateRequested(
 # 55 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c07660);
+uint8_t arg_0x2b4dae67d660);
 # 65 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(
 # 60 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c05868);
+uint8_t arg_0x2b4dae67b868);
 # 59 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(
 # 60 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c05868);
+uint8_t arg_0x2b4dae67b868);
 # 56 "/home/mrambler/tinyos-main/tos/interfaces/ResourceDefaultOwner.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceDefaultOwner__release(void );
 # 120 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__release(
 # 54 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c094a0);
+uint8_t arg_0x2b4dae67e4a0);
 # 97 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__immediateRequest(
 # 54 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c094a0);
+uint8_t arg_0x2b4dae67e4a0);
 # 102 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__default__granted(
 # 54 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c094a0);
+uint8_t arg_0x2b4dae67e4a0);
 # 128 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__isOwner(
 # 54 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c094a0);
+uint8_t arg_0x2b4dae67e4a0);
 # 90 "/home/mrambler/tinyos-main/tos/interfaces/ArbiterInfo.nc"
 static bool /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ArbiterInfo__inUse(void );
 
@@ -2586,6 +2584,12 @@ static error_t PrintfP__Init__init(void );
 static int PrintfP__Putchar__putchar(int c);
 # 62 "/home/mrambler/tinyos-main/tos/interfaces/Init.nc"
 static error_t PutcharP__Init__init(void );
+# 60 "/home/mrambler/tinyos-main/tos/interfaces/Boot.nc"
+static void SerialStartP__Boot__booted(void );
+# 113 "/home/mrambler/tinyos-main/tos/interfaces/SplitControl.nc"
+static void SerialStartP__SerialControl__startDone(error_t error);
+#line 138
+static void SerialStartP__SerialControl__stopDone(error_t error);
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Compare.nc"
 static void /*HilTimerMilliC.AlarmMilli32C.AlarmFrom.Msp430Alarm*/Msp430AlarmC__0__Msp430Compare__fired(void );
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Timer.nc"
@@ -2632,11 +2636,11 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__f
 #line 83
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(
 # 48 "/home/mrambler/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x2b8b28e435d8);
+uint8_t arg_0x2b4dae8af5d8);
 # 64 "/home/mrambler/tinyos-main/tos/lib/timer/Timer.nc"
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__startPeriodic(
 # 48 "/home/mrambler/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x2b8b28e435d8, 
+uint8_t arg_0x2b4dae8af5d8, 
 # 64 "/home/mrambler/tinyos-main/tos/lib/timer/Timer.nc"
 uint32_t dt);
 # 82 "/home/mrambler/tinyos-main/tos/lib/timer/Counter.nc"
@@ -2745,7 +2749,7 @@ static inline error_t Msp430ClockP__Init__init(void );
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerEvent.nc"
 static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(
 # 51 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0x2b8b283a5458);
+uint8_t arg_0x2b4dade84900);
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Timer.nc"
 static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Timer__overflow(void );
 # 126 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerP.nc"
@@ -2773,7 +2777,7 @@ static inline void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default_
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerEvent.nc"
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(
 # 51 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerP.nc"
-uint8_t arg_0x2b8b283a5458);
+uint8_t arg_0x2b4dade84900);
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Timer.nc"
 static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Timer__overflow(void );
 # 62 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerP.nc"
@@ -3214,7 +3218,7 @@ int main(void )   ;
 # 75 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
 static void SchedulerBasicP__TaskBasic__runTask(
 # 56 "/home/mrambler/tinyos-main/tos/system/SchedulerBasicP.nc"
-uint8_t arg_0x2b8b282c7650);
+uint8_t arg_0x2b4dadd41650);
 # 76 "/home/mrambler/tinyos-main/tos/interfaces/McuSleep.nc"
 static void SchedulerBasicP__McuSleep__sleep(void );
 # 61 "/home/mrambler/tinyos-main/tos/system/SchedulerBasicP.nc"
@@ -3507,7 +3511,7 @@ static inline void /*PrintfC.SerialAMSenderC.AMQueueEntryP*/AMQueueEntryP__0__Se
 # 80 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 static error_t /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(
 # 48 "/home/mrambler/tinyos-main/tos/system/AMQueueImplP.nc"
-am_id_t arg_0x2b8b287fb650, 
+am_id_t arg_0x2b4dae272650, 
 # 80 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 am_addr_t addr, 
 #line 71
@@ -3524,7 +3528,7 @@ uint8_t len);
 # 100 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 static void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDone(
 # 46 "/home/mrambler/tinyos-main/tos/system/AMQueueImplP.nc"
-uint8_t arg_0x2b8b287fc430, 
+uint8_t arg_0x2b4dae273430, 
 # 96 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -3617,7 +3621,7 @@ uint8_t len);
 # 110 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(
 # 47 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x2b8b28835508, 
+am_id_t arg_0x2b4dae2ab508, 
 # 103 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
 message_t * msg, 
 
@@ -3636,7 +3640,7 @@ message_t *
 
 /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(
 # 48 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-am_id_t arg_0x2b8b28834780, 
+am_id_t arg_0x2b4dae2aa780, 
 # 71 "/home/mrambler/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -3735,6 +3739,8 @@ static error_t SerialP__SerialControl__stop(void );
 static error_t SerialP__RunTx__postTask(void );
 # 49 "/home/mrambler/tinyos-main/tos/lib/serial/SerialFlush.nc"
 static void SerialP__SerialFlush__flush(void );
+# 67 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
+static error_t SerialP__startDoneTask__postTask(void );
 # 56 "/home/mrambler/tinyos-main/tos/lib/serial/SerialFrameComm.nc"
 static error_t SerialP__SerialFrameComm__putDelimiter(void );
 #line 79
@@ -4055,7 +4061,18 @@ static inline void SerialP__defaultSerialFlushTask__runTask(void );
 
 
 static inline void SerialP__SerialFlush__default__flush(void );
-#line 357
+
+
+
+static inline error_t SerialP__SplitControl__start(void );
+
+
+
+
+
+
+
+
 static void SerialP__testOff(void );
 #line 394
 static inline void SerialP__SerialFrameComm__delimiterReceived(void );
@@ -4103,15 +4120,12 @@ static inline error_t SerialP__SendBytePacket__startSend(uint8_t b);
 static inline void SerialP__RunTx__runTask(void );
 #line 668
 static inline void SerialP__SerialFrameComm__putDone(void );
-#line 748
-static inline void SerialP__SplitControl__default__startDone(error_t err);
-static inline void SerialP__SplitControl__default__stopDone(error_t err);
 # 67 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__receiveTask__postTask(void );
 # 100 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(
 # 51 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28977020, 
+uart_id_t arg_0x2b4dae3ed020, 
 # 96 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
 message_t * msg, 
 
@@ -4129,7 +4143,7 @@ message_t *
 
 /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(
 # 50 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b289793e0, 
+uart_id_t arg_0x2b4dae3ef3e0, 
 # 71 "/home/mrambler/tinyos-main/tos/interfaces/Receive.nc"
 message_t * msg, 
 void * payload, 
@@ -4142,17 +4156,17 @@ uint8_t len);
 # 31 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(
 # 54 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28976308, 
+uart_id_t arg_0x2b4dae3ec308, 
 # 31 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t dataLinkLen);
 #line 15
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(
 # 54 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28976308);
+uart_id_t arg_0x2b4dae3ec308);
 # 23 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__dataLinkLength(
 # 54 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
-uart_id_t arg_0x2b8b28976308, 
+uart_id_t arg_0x2b4dae3ec308, 
 # 23 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
 message_t *msg, uint8_t upperLen);
 # 71 "/home/mrambler/tinyos-main/tos/lib/serial/SendBytePacket.nc"
@@ -4351,7 +4365,7 @@ static inline void HdlcTranslateC__UartStream__receiveDone(uint8_t *buf, uint16_
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartConfigure.nc"
 static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(
 # 49 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a73e20);
+uint8_t arg_0x2b4dae4e9e20);
 # 97 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430Usart.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Usart__resetUsart(bool reset);
 #line 179
@@ -4368,13 +4382,13 @@ static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Usart__setModeUart(msp430_uart
 # 79 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a77860, 
+uint8_t arg_0x2b4dae4ed860, 
 # 79 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t byte);
 #line 99
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a77860, 
+uint8_t arg_0x2b4dae4ed860, 
 # 95 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -4384,7 +4398,7 @@ uint16_t len, error_t error);
 #line 57
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(
 # 45 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a77860, 
+uint8_t arg_0x2b4dae4ed860, 
 # 53 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
 uint8_t * buf, 
 
@@ -4394,19 +4408,19 @@ uint16_t len, error_t error);
 # 120 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a74be8);
+uint8_t arg_0x2b4dae4eabe8);
 # 97 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a74be8);
+uint8_t arg_0x2b4dae4eabe8);
 # 128 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(
 # 48 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a74be8);
+uint8_t arg_0x2b4dae4eabe8);
 # 102 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(
 # 43 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartP.nc"
-uint8_t arg_0x2b8b28a7d8f0);
+uint8_t arg_0x2b4dae4f38f0);
 #line 59
 uint16_t /*Msp430Uart1P.UartP*/Msp430UartP__0__m_tx_len;
 #line 59
@@ -4639,13 +4653,13 @@ static uint8_t /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__ArbiterIn
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__rxDone(
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0x2b8b28bc6220, 
+uint8_t arg_0x2b4dae63c220, 
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
 uint8_t data);
 #line 49
 static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__txDone(
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UsartShareP.nc"
-uint8_t arg_0x2b8b28bc6220);
+uint8_t arg_0x2b4dae63c220);
 
 
 
@@ -4698,15 +4712,15 @@ static inline resource_client_id_t /*Msp430UsartShare1P.ArbiterC.Queue*/FcfsReso
 # 61 "/home/mrambler/tinyos-main/tos/interfaces/ResourceRequested.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__immediateRequested(
 # 55 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c07660);
+uint8_t arg_0x2b4dae67d660);
 # 65 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(
 # 60 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c05868);
+uint8_t arg_0x2b4dae67b868);
 # 59 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__configure(
 # 60 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c05868);
+uint8_t arg_0x2b4dae67b868);
 # 53 "/home/mrambler/tinyos-main/tos/interfaces/ResourceQueue.nc"
 static bool /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Queue__isEmpty(void );
 #line 70
@@ -4718,7 +4732,7 @@ static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceDefaultO
 # 102 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
 static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__granted(
 # 54 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
-uint8_t arg_0x2b8b28c094a0);
+uint8_t arg_0x2b4dae67e4a0);
 # 67 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
 static error_t /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__grantedTask__postTask(void );
 # 75 "/home/mrambler/tinyos-main/tos/system/ArbiterP.nc"
@@ -4979,6 +4993,15 @@ static inline error_t PutcharP__Init__init(void );
 
 
 int putchar(int c) __attribute((noinline))   ;
+# 104 "/home/mrambler/tinyos-main/tos/interfaces/SplitControl.nc"
+static error_t SerialStartP__SerialControl__start(void );
+# 44 "/home/mrambler/tinyos-main/tos/lib/printf/SerialStartP.nc"
+static inline void SerialStartP__Boot__booted(void );
+
+
+
+static inline void SerialStartP__SerialControl__startDone(error_t error);
+static inline void SerialStartP__SerialControl__stopDone(error_t error);
 # 41 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430Compare.nc"
 static void /*HilTimerMilliC.AlarmMilli32C.AlarmFrom.Msp430Alarm*/Msp430AlarmC__0__Msp430Compare__setEvent(uint16_t time);
 
@@ -5164,7 +5187,7 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__s
 
 static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(
 # 48 "/home/mrambler/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-uint8_t arg_0x2b8b28e435d8);
+uint8_t arg_0x2b4dae8af5d8);
 #line 71
 enum /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0____nesc_unnamed4325 {
 #line 71
@@ -5272,9 +5295,9 @@ static inline void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default_
 }
 
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerEvent.nc"
-inline static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(uint8_t arg_0x2b8b283a5458){
+inline static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(uint8_t arg_0x2b4dade84900){
 #line 39
-  switch (arg_0x2b8b283a5458) {
+  switch (arg_0x2b4dade84900) {
 #line 39
     case 0:
 #line 39
@@ -5302,7 +5325,7 @@ inline static void /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__fired(ui
 #line 39
     default:
 #line 39
-      /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default__fired(arg_0x2b8b283a5458);
+      /*Msp430TimerC.Msp430TimerA*/Msp430TimerP__0__Event__default__fired(arg_0x2b4dade84900);
 #line 39
       break;
 #line 39
@@ -7501,26 +7524,28 @@ inline static void BlinkPrintfC__Leds__led0On(void ){
 static inline void BlinkPrintfC__Timer0__fired(void )
 {
   BlinkPrintfC__counter++;
-  printf("Timer triggered! I'm at clock %d!", BlinkPrintfC__counter);
+  printf("Timer triggered! I'm at clock %d!\n", BlinkPrintfC__counter);
+  printfflush();
+
   if (BlinkPrintfC__counter % 2 == 1) {
     BlinkPrintfC__Leds__led0On();
     }
   else {
-#line 27
+#line 29
     BlinkPrintfC__Leds__led0Off();
     }
   if (BlinkPrintfC__counter % 4 >= 2) {
     BlinkPrintfC__Leds__led1On();
     }
   else {
-#line 32
+#line 34
     BlinkPrintfC__Leds__led1Off();
     }
   if (BlinkPrintfC__counter % 8 >= 4) {
     BlinkPrintfC__Leds__led2On();
     }
   else {
-#line 37
+#line 39
     BlinkPrintfC__Leds__led2Off();
     }
 }
@@ -7531,9 +7556,9 @@ static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 }
 
 # 83 "/home/mrambler/tinyos-main/tos/lib/timer/Timer.nc"
-inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0x2b8b28e435d8){
+inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__fired(uint8_t arg_0x2b4dae8af5d8){
 #line 83
-  switch (arg_0x2b8b28e435d8) {
+  switch (arg_0x2b4dae8af5d8) {
 #line 83
     case 0U:
 #line 83
@@ -7543,7 +7568,7 @@ inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 #line 83
     default:
 #line 83
-      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0x2b8b28e435d8);
+      /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer__default__fired(arg_0x2b4dae8af5d8);
 #line 83
       break;
 #line 83
@@ -7551,104 +7576,99 @@ inline static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__Timer
 #line 83
 }
 #line 83
-# 139 "/home/mrambler/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
-static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__fired(void )
+# 53 "/home/mrambler/tinyos-main/tos/system/QueueC.nc"
+static inline bool /*PrintfC.QueueC*/QueueC__0__Queue__empty(void )
+#line 53
 {
-  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__fireTimers(/*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__getNow());
+  return /*PrintfC.QueueC*/QueueC__0__size == 0;
 }
 
-# 83 "/home/mrambler/tinyos-main/tos/lib/timer/Timer.nc"
-inline static void /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Timer__fired(void ){
-#line 83
-  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__fired();
-#line 83
-}
-#line 83
-# 91 "/home/mrambler/tinyos-main/tos/lib/timer/TransformAlarmC.nc"
-static inline /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__Alarm__getAlarm(void )
-{
-  { __nesc_atomic_t __nesc_atomic = __nesc_atomic_start();
-#line 93
-    {
-      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type __nesc_temp = 
-#line 93
-      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_t0 + /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_dt;
-
-      {
-#line 93
-        __nesc_atomic_end(__nesc_atomic); 
-#line 93
-        return __nesc_temp;
-      }
-    }
-#line 95
-    __nesc_atomic_end(__nesc_atomic); }
-}
-
-# 116 "/home/mrambler/tinyos-main/tos/lib/timer/Alarm.nc"
-inline static /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Alarm__size_type /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Alarm__getAlarm(void ){
-#line 116
-  unsigned long __nesc_result;
-#line 116
-
-#line 116
-  __nesc_result = /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__Alarm__getAlarm();
-#line 116
-
-#line 116
-  return __nesc_result;
-#line 116
-}
-#line 116
-# 74 "/home/mrambler/tinyos-main/tos/lib/timer/AlarmToTimerC.nc"
-static inline void /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__fired__runTask(void )
-{
-  if (/*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__m_oneshot == FALSE) {
-    /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__start(/*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Alarm__getAlarm(), /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__m_dt, FALSE);
-    }
-#line 78
-  /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Timer__fired();
-}
-
-# 67 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
-inline static error_t PrintfP__retrySend__postTask(void ){
-#line 67
+# 50 "/home/mrambler/tinyos-main/tos/interfaces/Queue.nc"
+inline static bool PrintfP__Queue__empty(void ){
+#line 50
   unsigned char __nesc_result;
-#line 67
+#line 50
 
-#line 67
-  __nesc_result = SchedulerBasicP__TaskBasic__postTask(PrintfP__retrySend);
-#line 67
+#line 50
+  __nesc_result = /*PrintfC.QueueC*/QueueC__0__Queue__empty();
+#line 50
 
-#line 67
+#line 50
   return __nesc_result;
-#line 67
+#line 50
 }
-#line 67
-# 80 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
-inline static error_t PrintfP__AMSend__send(am_addr_t addr, message_t * msg, uint8_t len){
-#line 80
-  unsigned char __nesc_result;
-#line 80
+#line 50
+# 126 "/home/mrambler/tinyos-main/tos/interfaces/Packet.nc"
+inline static void * PrintfP__Packet__getPayload(message_t * msg, uint8_t len){
+#line 126
+  void *__nesc_result;
+#line 126
 
-#line 80
-  __nesc_result = /*PrintfC.SerialAMSenderC.AMQueueEntryP*/AMQueueEntryP__0__AMSend__send(addr, msg, len);
-#line 80
+#line 126
+  __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__getPayload(msg, len);
+#line 126
 
-#line 80
+#line 126
   return __nesc_result;
-#line 80
+#line 126
 }
-#line 80
-# 114 "/home/mrambler/tinyos-main/tos/lib/printf/PrintfP.nc"
-static inline void PrintfP__retrySend__runTask(void )
-#line 114
+#line 126
+# 131 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
+static inline uint8_t /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__maxPayloadLength(void )
+#line 131
 {
-  if (PrintfP__AMSend__send(AM_BROADCAST_ADDR, &PrintfP__printfMsg, sizeof(printf_msg_t )) != SUCCESS) {
-    PrintfP__retrySend__postTask();
-    }
+  return 28;
 }
 
+# 69 "/home/mrambler/tinyos-main/tos/system/QueueC.nc"
+static inline void /*PrintfC.QueueC*/QueueC__0__printQueue(void )
+#line 69
+{
+}
+
+#line 65
+static inline /*PrintfC.QueueC*/QueueC__0__queue_t /*PrintfC.QueueC*/QueueC__0__Queue__head(void )
+#line 65
+{
+  return /*PrintfC.QueueC*/QueueC__0__queue[/*PrintfC.QueueC*/QueueC__0__head];
+}
+
+#line 85
+static inline /*PrintfC.QueueC*/QueueC__0__queue_t /*PrintfC.QueueC*/QueueC__0__Queue__dequeue(void )
+#line 85
+{
+  /*PrintfC.QueueC*/QueueC__0__queue_t t = /*PrintfC.QueueC*/QueueC__0__Queue__head();
+
+#line 87
+  ;
+  if (!/*PrintfC.QueueC*/QueueC__0__Queue__empty()) {
+      /*PrintfC.QueueC*/QueueC__0__head++;
+      if (/*PrintfC.QueueC*/QueueC__0__head == 250) {
+#line 90
+        /*PrintfC.QueueC*/QueueC__0__head = 0;
+        }
+#line 91
+      /*PrintfC.QueueC*/QueueC__0__size--;
+      /*PrintfC.QueueC*/QueueC__0__printQueue();
+    }
+  return t;
+}
+
+# 81 "/home/mrambler/tinyos-main/tos/interfaces/Queue.nc"
+inline static PrintfP__Queue__t  PrintfP__Queue__dequeue(void ){
+#line 81
+  unsigned char __nesc_result;
+#line 81
+
+#line 81
+  __nesc_result = /*PrintfC.QueueC*/QueueC__0__Queue__dequeue();
+#line 81
+
+#line 81
+  return __nesc_result;
+#line 81
+}
+#line 81
 # 315 "/usr/lib/ncc/nesc_nx.h"
 static __inline  uint16_t __nesc_hton_uint16(void * target, uint16_t value)
 #line 315
@@ -7714,13 +7734,13 @@ inline static void /*PrintfC.SerialAMSenderC.AMQueueEntryP*/AMQueueEntryP__0__AM
 }
 #line 162
 # 80 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
-inline static error_t /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(am_id_t arg_0x2b8b287fb650, am_addr_t addr, message_t * msg, uint8_t len){
+inline static error_t /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__send(am_id_t arg_0x2b4dae272650, am_addr_t addr, message_t * msg, uint8_t len){
 #line 80
   unsigned char __nesc_result;
 #line 80
 
 #line 80
-  __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__send(arg_0x2b8b287fb650, addr, msg, len);
+  __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__send(arg_0x2b4dae272650, addr, msg, len);
 #line 80
 
 #line 80
@@ -7836,13 +7856,6 @@ static __inline  uint16_t __nesc_ntoh_uint16(const void * source)
   return ((uint16_t )base[0] << 8) | base[1];
 }
 
-# 131 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-static inline uint8_t /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__maxPayloadLength(void )
-#line 131
-{
-  return 28;
-}
-
 # 538 "/home/mrambler/tinyos-main/tos/lib/serial/SerialP.nc"
 static inline error_t SerialP__SendBytePacket__startSend(uint8_t b)
 #line 538
@@ -7919,13 +7932,13 @@ uint8_t upperLen)
 }
 
 # 23 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
-inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__dataLinkLength(uart_id_t arg_0x2b8b28976308, message_t *msg, uint8_t upperLen){
+inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__dataLinkLength(uart_id_t arg_0x2b4dae3ec308, message_t *msg, uint8_t upperLen){
 #line 23
   unsigned char __nesc_result;
 #line 23
 
 #line 23
-  switch (arg_0x2b8b28976308) {
+  switch (arg_0x2b4dae3ec308) {
 #line 23
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 23
@@ -7935,7 +7948,7 @@ inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 #line 23
     default:
 #line 23
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__dataLinkLength(arg_0x2b8b28976308, msg, upperLen);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__dataLinkLength(arg_0x2b4dae3ec308, msg, upperLen);
 #line 23
       break;
 #line 23
@@ -7962,13 +7975,13 @@ static inline uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 }
 
 # 15 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
-inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(uart_id_t arg_0x2b8b28976308){
+inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__offset(uart_id_t arg_0x2b4dae3ec308){
 #line 15
   unsigned char __nesc_result;
 #line 15
 
 #line 15
-  switch (arg_0x2b8b28976308) {
+  switch (arg_0x2b4dae3ec308) {
 #line 15
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 15
@@ -7978,7 +7991,7 @@ inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 #line 15
     default:
 #line 15
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(arg_0x2b8b28976308);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__offset(arg_0x2b4dae3ec308);
 #line 15
       break;
 #line 15
@@ -8071,6 +8084,104 @@ inline static error_t SerialP__RunTx__postTask(void ){
 #line 67
 }
 #line 67
+# 139 "/home/mrambler/tinyos-main/tos/lib/timer/VirtualizeTimerC.nc"
+static inline void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__fired(void )
+{
+  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__fireTimers(/*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__getNow());
+}
+
+# 83 "/home/mrambler/tinyos-main/tos/lib/timer/Timer.nc"
+inline static void /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Timer__fired(void ){
+#line 83
+  /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__TimerFrom__fired();
+#line 83
+}
+#line 83
+# 91 "/home/mrambler/tinyos-main/tos/lib/timer/TransformAlarmC.nc"
+static inline /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__Alarm__getAlarm(void )
+{
+  { __nesc_atomic_t __nesc_atomic = __nesc_atomic_start();
+#line 93
+    {
+      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type __nesc_temp = 
+#line 93
+      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_t0 + /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_dt;
+
+      {
+#line 93
+        __nesc_atomic_end(__nesc_atomic); 
+#line 93
+        return __nesc_temp;
+      }
+    }
+#line 95
+    __nesc_atomic_end(__nesc_atomic); }
+}
+
+# 116 "/home/mrambler/tinyos-main/tos/lib/timer/Alarm.nc"
+inline static /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Alarm__size_type /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Alarm__getAlarm(void ){
+#line 116
+  unsigned long __nesc_result;
+#line 116
+
+#line 116
+  __nesc_result = /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__Alarm__getAlarm();
+#line 116
+
+#line 116
+  return __nesc_result;
+#line 116
+}
+#line 116
+# 74 "/home/mrambler/tinyos-main/tos/lib/timer/AlarmToTimerC.nc"
+static inline void /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__fired__runTask(void )
+{
+  if (/*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__m_oneshot == FALSE) {
+    /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__start(/*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Alarm__getAlarm(), /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__m_dt, FALSE);
+    }
+#line 78
+  /*HilTimerMilliC.AlarmToTimerC*/AlarmToTimerC__0__Timer__fired();
+}
+
+# 67 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
+inline static error_t PrintfP__retrySend__postTask(void ){
+#line 67
+  unsigned char __nesc_result;
+#line 67
+
+#line 67
+  __nesc_result = SchedulerBasicP__TaskBasic__postTask(PrintfP__retrySend);
+#line 67
+
+#line 67
+  return __nesc_result;
+#line 67
+}
+#line 67
+# 80 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
+inline static error_t PrintfP__AMSend__send(am_addr_t addr, message_t * msg, uint8_t len){
+#line 80
+  unsigned char __nesc_result;
+#line 80
+
+#line 80
+  __nesc_result = /*PrintfC.SerialAMSenderC.AMQueueEntryP*/AMQueueEntryP__0__AMSend__send(addr, msg, len);
+#line 80
+
+#line 80
+  return __nesc_result;
+#line 80
+}
+#line 80
+# 114 "/home/mrambler/tinyos-main/tos/lib/printf/PrintfP.nc"
+static inline void PrintfP__retrySend__runTask(void )
+#line 114
+{
+  if (PrintfP__AMSend__send(AM_BROADCAST_ADDR, &PrintfP__printfMsg, sizeof(printf_msg_t )) != SUCCESS) {
+    PrintfP__retrySend__postTask();
+    }
+}
+
 # 17 "/home/mrambler/tinyos-main/tos/platforms/telosa/TelosSerialP.nc"
 static inline void TelosSerialP__Resource__granted(void )
 #line 17
@@ -8084,9 +8195,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__gran
 }
 
 # 102 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8_t arg_0x2b8b28a7d8f0){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8_t arg_0x2b4dae4f38f0){
 #line 102
-  switch (arg_0x2b8b28a7d8f0) {
+  switch (arg_0x2b4dae4f38f0) {
 #line 102
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 102
@@ -8096,7 +8207,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__granted(uint8
 #line 102
     default:
 #line 102
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(arg_0x2b8b28a7d8f0);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__Resource__default__granted(arg_0x2b4dae4f38f0);
 #line 102
       break;
 #line 102
@@ -8118,9 +8229,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource_
 }
 
 # 102 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__granted(uint8_t arg_0x2b8b28c094a0){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__granted(uint8_t arg_0x2b4dae67e4a0){
 #line 102
-  switch (arg_0x2b8b28c094a0) {
+  switch (arg_0x2b4dae67e4a0) {
 #line 102
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 102
@@ -8130,7 +8241,7 @@ inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource_
 #line 102
     default:
 #line 102
-      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__default__granted(arg_0x2b8b28c094a0);
+      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__Resource__default__granted(arg_0x2b4dae67e4a0);
 #line 102
       break;
 #line 102
@@ -8145,9 +8256,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 }
 
 # 59 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__configure(uint8_t arg_0x2b8b28c05868){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__configure(uint8_t arg_0x2b4dae67b868){
 #line 59
-  switch (arg_0x2b8b28c05868) {
+  switch (arg_0x2b4dae67b868) {
 #line 59
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 59
@@ -8157,7 +8268,7 @@ inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 #line 59
     default:
 #line 59
-      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(arg_0x2b8b28c05868);
+      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__configure(arg_0x2b4dae67b868);
 #line 59
       break;
 #line 59
@@ -8196,13 +8307,13 @@ static inline msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__
 }
 
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/Msp430UartConfigure.nc"
-inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(uint8_t arg_0x2b8b28a73e20){
+inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__getConfig(uint8_t arg_0x2b4dae4e9e20){
 #line 39
   union __nesc_unnamed4280 *__nesc_result;
 #line 39
 
 #line 39
-  switch (arg_0x2b8b28a73e20) {
+  switch (arg_0x2b4dae4e9e20) {
 #line 39
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 39
@@ -8212,7 +8323,7 @@ inline static msp430_uart_union_config_t */*Msp430Uart1P.UartP*/Msp430UartP__0__
 #line 39
     default:
 #line 39
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(arg_0x2b8b28a73e20);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__Msp430UartConfigure__default__getConfig(arg_0x2b4dae4e9e20);
 #line 39
       break;
 #line 39
@@ -8532,9 +8643,9 @@ static inline void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default
 }
 
 # 100 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
-inline static void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDone(uint8_t arg_0x2b8b287fc430, message_t * msg, error_t error){
+inline static void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDone(uint8_t arg_0x2b4dae273430, message_t * msg, error_t error){
 #line 100
-  switch (arg_0x2b8b287fc430) {
+  switch (arg_0x2b4dae273430) {
 #line 100
     case 0U:
 #line 100
@@ -8544,7 +8655,7 @@ inline static void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__sendDon
 #line 100
     default:
 #line 100
-      /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default__sendDone(arg_0x2b8b287fc430, msg, error);
+      /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__Send__default__sendDone(arg_0x2b4dae273430, msg, error);
 #line 100
       break;
 #line 100
@@ -8582,9 +8693,9 @@ static inline void /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendD
 }
 
 # 110 "/home/mrambler/tinyos-main/tos/interfaces/AMSend.nc"
-inline static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(am_id_t arg_0x2b8b28835508, message_t * msg, error_t error){
+inline static void /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__AMSend__sendDone(am_id_t arg_0x2b4dae2ab508, message_t * msg, error_t error){
 #line 110
-  /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendDone(arg_0x2b8b28835508, msg, error);
+  /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__AMSend__sendDone(arg_0x2b4dae2ab508, msg, error);
 #line 110
 }
 #line 110
@@ -8603,9 +8714,9 @@ static inline void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__
 }
 
 # 100 "/home/mrambler/tinyos-main/tos/interfaces/Send.nc"
-inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(uart_id_t arg_0x2b8b28977020, message_t * msg, error_t error){
+inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__sendDone(uart_id_t arg_0x2b4dae3ed020, message_t * msg, error_t error){
 #line 100
-  switch (arg_0x2b8b28977020) {
+  switch (arg_0x2b4dae3ed020) {
 #line 100
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 100
@@ -8615,7 +8726,7 @@ inline static void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__
 #line 100
     default:
 #line 100
-      /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(arg_0x2b8b28977020, msg, error);
+      /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Send__default__sendDone(arg_0x2b4dae3ed020, msg, error);
 #line 100
       break;
 #line 100
@@ -8718,84 +8829,6 @@ inline static error_t /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__errorTask_
 #line 67
 }
 #line 67
-# 126 "/home/mrambler/tinyos-main/tos/interfaces/Packet.nc"
-inline static void * PrintfP__Packet__getPayload(message_t * msg, uint8_t len){
-#line 126
-  void *__nesc_result;
-#line 126
-
-#line 126
-  __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__getPayload(msg, len);
-#line 126
-
-#line 126
-  return __nesc_result;
-#line 126
-}
-#line 126
-# 69 "/home/mrambler/tinyos-main/tos/system/QueueC.nc"
-static inline void /*PrintfC.QueueC*/QueueC__0__printQueue(void )
-#line 69
-{
-}
-
-#line 53
-static inline bool /*PrintfC.QueueC*/QueueC__0__Queue__empty(void )
-#line 53
-{
-  return /*PrintfC.QueueC*/QueueC__0__size == 0;
-}
-
-
-
-
-
-
-
-
-
-static inline /*PrintfC.QueueC*/QueueC__0__queue_t /*PrintfC.QueueC*/QueueC__0__Queue__head(void )
-#line 65
-{
-  return /*PrintfC.QueueC*/QueueC__0__queue[/*PrintfC.QueueC*/QueueC__0__head];
-}
-
-#line 85
-static inline /*PrintfC.QueueC*/QueueC__0__queue_t /*PrintfC.QueueC*/QueueC__0__Queue__dequeue(void )
-#line 85
-{
-  /*PrintfC.QueueC*/QueueC__0__queue_t t = /*PrintfC.QueueC*/QueueC__0__Queue__head();
-
-#line 87
-  ;
-  if (!/*PrintfC.QueueC*/QueueC__0__Queue__empty()) {
-      /*PrintfC.QueueC*/QueueC__0__head++;
-      if (/*PrintfC.QueueC*/QueueC__0__head == 250) {
-#line 90
-        /*PrintfC.QueueC*/QueueC__0__head = 0;
-        }
-#line 91
-      /*PrintfC.QueueC*/QueueC__0__size--;
-      /*PrintfC.QueueC*/QueueC__0__printQueue();
-    }
-  return t;
-}
-
-# 81 "/home/mrambler/tinyos-main/tos/interfaces/Queue.nc"
-inline static PrintfP__Queue__t  PrintfP__Queue__dequeue(void ){
-#line 81
-  unsigned char __nesc_result;
-#line 81
-
-#line 81
-  __nesc_result = /*PrintfC.QueueC*/QueueC__0__Queue__dequeue();
-#line 81
-
-#line 81
-  return __nesc_result;
-#line 81
-}
-#line 81
 # 212 "/home/mrambler/tinyos-main/tos/lib/serial/SerialDispatcherP.nc"
 static inline void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__unlockBuffer(uint8_t which)
 #line 212
@@ -8816,13 +8849,13 @@ static inline message_t */*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Rec
 }
 
 # 78 "/home/mrambler/tinyos-main/tos/interfaces/Receive.nc"
-inline static message_t * /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(am_id_t arg_0x2b8b28834780, message_t * msg, void * payload, uint8_t len){
+inline static message_t * /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__receive(am_id_t arg_0x2b4dae2aa780, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-    __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(arg_0x2b8b28834780, msg, payload, len);
+    __nesc_result = /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Receive__default__receive(arg_0x2b4dae2aa780, msg, payload, len);
 #line 78
 
 #line 78
@@ -8847,13 +8880,13 @@ uint8_t len)
 }
 
 # 78 "/home/mrambler/tinyos-main/tos/interfaces/Receive.nc"
-inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(uart_id_t arg_0x2b8b289793e0, message_t * msg, void * payload, uint8_t len){
+inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__receive(uart_id_t arg_0x2b4dae3ef3e0, message_t * msg, void * payload, uint8_t len){
 #line 78
   nx_struct message_t *__nesc_result;
 #line 78
 
 #line 78
-  switch (arg_0x2b8b289793e0) {
+  switch (arg_0x2b4dae3ef3e0) {
 #line 78
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 78
@@ -8863,7 +8896,7 @@ inline static message_t * /*SerialDispatcherC.SerialDispatcherP*/SerialDispatche
 #line 78
     default:
 #line 78
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(arg_0x2b8b289793e0, msg, payload, len);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__Receive__default__receive(arg_0x2b4dae3ef3e0, msg, payload, len);
 #line 78
       break;
 #line 78
@@ -8891,13 +8924,13 @@ uint8_t dataLinkLen)
 }
 
 # 31 "/home/mrambler/tinyos-main/tos/lib/serial/SerialPacketInfo.nc"
-inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(uart_id_t arg_0x2b8b28976308, message_t *msg, uint8_t dataLinkLen){
+inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__upperLength(uart_id_t arg_0x2b4dae3ec308, message_t *msg, uint8_t dataLinkLen){
 #line 31
   unsigned char __nesc_result;
 #line 31
 
 #line 31
-  switch (arg_0x2b8b28976308) {
+  switch (arg_0x2b4dae3ec308) {
 #line 31
     case TOS_SERIAL_ACTIVE_MESSAGE_ID:
 #line 31
@@ -8907,7 +8940,7 @@ inline static uint8_t /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__
 #line 31
     default:
 #line 31
-      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(arg_0x2b8b28976308, msg, dataLinkLen);
+      __nesc_result = /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__PacketInfo__default__upperLength(arg_0x2b4dae3ec308, msg, dataLinkLen);
 #line 31
       break;
 #line 31
@@ -8953,16 +8986,16 @@ static inline void /*SerialDispatcherC.SerialDispatcherP*/SerialDispatcherP__0__
     __nesc_atomic_end(__nesc_atomic); }
 }
 
-# 749 "/home/mrambler/tinyos-main/tos/lib/serial/SerialP.nc"
-static inline void SerialP__SplitControl__default__stopDone(error_t err)
-#line 749
+# 49 "/home/mrambler/tinyos-main/tos/lib/printf/SerialStartP.nc"
+static inline void SerialStartP__SerialControl__stopDone(error_t error)
+#line 49
 {
 }
 
 # 138 "/home/mrambler/tinyos-main/tos/interfaces/SplitControl.nc"
 inline static void SerialP__SplitControl__stopDone(error_t error){
 #line 138
-  SerialP__SplitControl__default__stopDone(error);
+  SerialStartP__SerialControl__stopDone(error);
 #line 138
 }
 #line 138
@@ -9055,9 +9088,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 }
 
 # 65 "/home/mrambler/tinyos-main/tos/interfaces/ResourceConfigure.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0x2b8b28c05868){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__unconfigure(uint8_t arg_0x2b4dae67b868){
 #line 65
-  switch (arg_0x2b8b28c05868) {
+  switch (arg_0x2b4dae67b868) {
 #line 65
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 65
@@ -9067,7 +9100,7 @@ inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceC
 #line 65
     default:
 #line 65
-      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(arg_0x2b8b28c05868);
+      /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceConfigure__default__unconfigure(arg_0x2b4dae67b868);
 #line 65
       break;
 #line 65
@@ -9224,13 +9257,13 @@ static inline error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__defau
 }
 
 # 120 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(uint8_t arg_0x2b8b28a74be8){
+inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__release(uint8_t arg_0x2b4dae4eabe8){
 #line 120
   unsigned char __nesc_result;
 #line 120
 
 #line 120
-  switch (arg_0x2b8b28a74be8) {
+  switch (arg_0x2b4dae4eabe8) {
 #line 120
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 120
@@ -9240,7 +9273,7 @@ inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__relea
 #line 120
     default:
 #line 120
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(arg_0x2b8b28a74be8);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__release(arg_0x2b4dae4eabe8);
 #line 120
       break;
 #line 120
@@ -9261,13 +9294,13 @@ static inline bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default_
 }
 
 # 128 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
-inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(uint8_t arg_0x2b8b28a74be8){
+inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(uint8_t arg_0x2b4dae4eabe8){
 #line 128
   unsigned char __nesc_result;
 #line 128
 
 #line 128
-  switch (arg_0x2b8b28a74be8) {
+  switch (arg_0x2b4dae4eabe8) {
 #line 128
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 128
@@ -9277,7 +9310,7 @@ inline static bool /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__isOwner(
 #line 128
     default:
 #line 128
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(arg_0x2b8b28a74be8);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__isOwner(arg_0x2b4dae4eabe8);
 #line 128
       break;
 #line 128
@@ -9392,16 +9425,16 @@ static inline void SerialP__stopDoneTask__runTask(void )
   SerialP__SerialFlush__flush();
 }
 
-#line 748
-static inline void SerialP__SplitControl__default__startDone(error_t err)
-#line 748
+# 48 "/home/mrambler/tinyos-main/tos/lib/printf/SerialStartP.nc"
+static inline void SerialStartP__SerialControl__startDone(error_t error)
+#line 48
 {
 }
 
 # 113 "/home/mrambler/tinyos-main/tos/interfaces/SplitControl.nc"
 inline static void SerialP__SplitControl__startDone(error_t error){
 #line 113
-  SerialP__SplitControl__default__startDone(error);
+  SerialStartP__SerialControl__startDone(error);
 #line 113
 }
 #line 113
@@ -9514,9 +9547,9 @@ static inline void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceR
 }
 
 # 61 "/home/mrambler/tinyos-main/tos/interfaces/ResourceRequested.nc"
-inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__immediateRequested(uint8_t arg_0x2b8b28c07660){
+inline static void /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__immediateRequested(uint8_t arg_0x2b4dae67d660){
 #line 61
-    /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__default__immediateRequested(arg_0x2b8b28c07660);
+    /*Msp430UsartShare1P.ArbiterC.Arbiter*/ArbiterP__0__ResourceRequested__default__immediateRequested(arg_0x2b4dae67d660);
 #line 61
 }
 #line 61
@@ -9570,13 +9603,13 @@ static inline error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__defau
 }
 
 # 97 "/home/mrambler/tinyos-main/tos/interfaces/Resource.nc"
-inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(uint8_t arg_0x2b8b28a74be8){
+inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immediateRequest(uint8_t arg_0x2b4dae4eabe8){
 #line 97
   unsigned char __nesc_result;
 #line 97
 
 #line 97
-  switch (arg_0x2b8b28a74be8) {
+  switch (arg_0x2b4dae4eabe8) {
 #line 97
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 97
@@ -9586,7 +9619,7 @@ inline static error_t /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__immed
 #line 97
     default:
 #line 97
-      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(arg_0x2b8b28a74be8);
+      __nesc_result = /*Msp430Uart1P.UartP*/Msp430UartP__0__UsartResource__default__immediateRequest(arg_0x2b4dae4eabe8);
 #line 97
       break;
 #line 97
@@ -10203,8 +10236,75 @@ static inline void BlinkPrintfC__Boot__booted(void )
   BlinkPrintfC__Timer0__startPeriodic(50);
 }
 
+# 67 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
+inline static error_t SerialP__startDoneTask__postTask(void ){
+#line 67
+  unsigned char __nesc_result;
+#line 67
+
+#line 67
+  __nesc_result = SchedulerBasicP__TaskBasic__postTask(SerialP__startDoneTask);
+#line 67
+
+#line 67
+  return __nesc_result;
+#line 67
+}
+#line 67
+# 348 "/home/mrambler/tinyos-main/tos/lib/serial/SerialP.nc"
+static inline error_t SerialP__SplitControl__start(void )
+#line 348
+{
+  { __nesc_atomic_t __nesc_atomic = __nesc_atomic_start();
+#line 349
+    {
+      if (SerialP__txState != SerialP__TXSTATE_INACTIVE && SerialP__rxState != SerialP__RXSTATE_INACTIVE) 
+        {
+          unsigned char __nesc_temp = 
+#line 351
+          EALREADY;
+
+          {
+#line 351
+            __nesc_atomic_end(__nesc_atomic); 
+#line 351
+            return __nesc_temp;
+          }
+        }
+    }
+#line 354
+    __nesc_atomic_end(__nesc_atomic); }
+#line 353
+  SerialP__startDoneTask__postTask();
+  return SUCCESS;
+}
+
+# 104 "/home/mrambler/tinyos-main/tos/interfaces/SplitControl.nc"
+inline static error_t SerialStartP__SerialControl__start(void ){
+#line 104
+  unsigned char __nesc_result;
+#line 104
+
+#line 104
+  __nesc_result = SerialP__SplitControl__start();
+#line 104
+
+#line 104
+  return __nesc_result;
+#line 104
+}
+#line 104
+# 44 "/home/mrambler/tinyos-main/tos/lib/printf/SerialStartP.nc"
+static inline void SerialStartP__Boot__booted(void )
+#line 44
+{
+  SerialStartP__SerialControl__start();
+}
+
 # 60 "/home/mrambler/tinyos-main/tos/interfaces/Boot.nc"
 inline static void RealMainP__Boot__booted(void ){
+#line 60
+  SerialStartP__Boot__booted();
 #line 60
   BlinkPrintfC__Boot__booted();
 #line 60
@@ -10469,9 +10569,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__re
 }
 
 # 79 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(uint8_t arg_0x2b8b28a77860, uint8_t byte){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByte(uint8_t arg_0x2b4dae4ed860, uint8_t byte){
 #line 79
-  switch (arg_0x2b8b28a77860) {
+  switch (arg_0x2b4dae4ed860) {
 #line 79
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 79
@@ -10481,7 +10581,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receivedByt
 #line 79
     default:
 #line 79
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(arg_0x2b8b28a77860, byte);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receivedByte(arg_0x2b4dae4ed860, byte);
 #line 79
       break;
 #line 79
@@ -10502,9 +10602,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__re
 }
 
 # 99 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(uint8_t arg_0x2b8b28a77860, uint8_t * buf, uint16_t len, error_t error){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone(uint8_t arg_0x2b4dae4ed860, uint8_t * buf, uint16_t len, error_t error){
 #line 99
-  switch (arg_0x2b8b28a77860) {
+  switch (arg_0x2b4dae4ed860) {
 #line 99
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 99
@@ -10514,7 +10614,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__receiveDone
 #line 99
     default:
 #line 99
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(arg_0x2b8b28a77860, buf, len, error);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__receiveDone(arg_0x2b4dae4ed860, buf, len, error);
 #line 99
       break;
 #line 99
@@ -10550,9 +10650,9 @@ static inline void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 }
 
 # 54 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
-inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__rxDone(uint8_t arg_0x2b8b28bc6220, uint8_t data){
+inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__rxDone(uint8_t arg_0x2b4dae63c220, uint8_t data){
 #line 54
-  switch (arg_0x2b8b28bc6220) {
+  switch (arg_0x2b4dae63c220) {
 #line 54
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 54
@@ -10562,7 +10662,7 @@ inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 #line 54
     default:
 #line 54
-      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__rxDone(arg_0x2b8b28bc6220, data);
+      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__rxDone(arg_0x2b4dae63c220, data);
 #line 54
       break;
 #line 54
@@ -10864,9 +10964,9 @@ static inline void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__se
 }
 
 # 57 "/home/mrambler/tinyos-main/tos/interfaces/UartStream.nc"
-inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(uint8_t arg_0x2b8b28a77860, uint8_t * buf, uint16_t len, error_t error){
+inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(uint8_t arg_0x2b4dae4ed860, uint8_t * buf, uint16_t len, error_t error){
 #line 57
-  switch (arg_0x2b8b28a77860) {
+  switch (arg_0x2b4dae4ed860) {
 #line 57
     case /*PlatformSerialC.UartC*/Msp430Uart1C__0__CLIENT_ID:
 #line 57
@@ -10876,7 +10976,7 @@ inline static void /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__sendDone(ui
 #line 57
     default:
 #line 57
-      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(arg_0x2b8b28a77860, buf, len, error);
+      /*Msp430Uart1P.UartP*/Msp430UartP__0__UartStream__default__sendDone(arg_0x2b4dae4ed860, buf, len, error);
 #line 57
       break;
 #line 57
@@ -10931,9 +11031,9 @@ static inline void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 }
 
 # 49 "/home/mrambler/tinyos-main/tos/chips/msp430/usart/HplMsp430UsartInterrupts.nc"
-inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__txDone(uint8_t arg_0x2b8b28bc6220){
+inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__txDone(uint8_t arg_0x2b4dae63c220){
 #line 49
-  switch (arg_0x2b8b28bc6220) {
+  switch (arg_0x2b4dae63c220) {
 #line 49
     case /*PlatformSerialC.UartC.UsartC*/Msp430Usart1C__0__CLIENT_ID:
 #line 49
@@ -10943,7 +11043,7 @@ inline static void /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Inter
 #line 49
     default:
 #line 49
-      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__txDone(arg_0x2b8b28bc6220);
+      /*Msp430UsartShare1P.UsartShareP*/Msp430UsartShareP__0__Interrupts__default__txDone(arg_0x2b4dae63c220);
 #line 49
       break;
 #line 49
@@ -11144,21 +11244,6 @@ inline static void HdlcTranslateC__SerialFrameComm__putDone(void ){
 #line 100
 }
 #line 100
-# 50 "/home/mrambler/tinyos-main/tos/interfaces/Queue.nc"
-inline static bool PrintfP__Queue__empty(void ){
-#line 50
-  unsigned char __nesc_result;
-#line 50
-
-#line 50
-  __nesc_result = /*PrintfC.QueueC*/QueueC__0__Queue__empty();
-#line 50
-
-#line 50
-  return __nesc_result;
-#line 50
-}
-#line 50
 # 61 "/home/mrambler/tinyos-main/tos/system/QueueC.nc"
 static inline uint8_t /*PrintfC.QueueC*/QueueC__0__Queue__maxSize(void )
 #line 61
@@ -11367,9 +11452,9 @@ static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(
 }
 
 # 39 "/home/mrambler/tinyos-main/tos/chips/msp430/timer/Msp430TimerEvent.nc"
-static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(uint8_t arg_0x2b8b283a5458){
+static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(uint8_t arg_0x2b4dade84900){
 #line 39
-  switch (arg_0x2b8b283a5458) {
+  switch (arg_0x2b4dade84900) {
 #line 39
     case 0:
 #line 39
@@ -11421,7 +11506,7 @@ static void /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__fired(uint8_t a
 #line 39
     default:
 #line 39
-      /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(arg_0x2b8b283a5458);
+      /*Msp430TimerC.Msp430TimerB*/Msp430TimerP__1__Event__default__fired(arg_0x2b4dade84900);
 #line 39
       break;
 #line 39
@@ -11725,9 +11810,9 @@ static void SchedulerBasicP__TaskBasic__default__runTask(uint8_t id)
 }
 
 # 75 "/home/mrambler/tinyos-main/tos/interfaces/TaskBasic.nc"
-static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0x2b8b282c7650){
+static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0x2b4dadd41650){
 #line 75
-  switch (arg_0x2b8b282c7650) {
+  switch (arg_0x2b4dadd41650) {
 #line 75
     case /*SerialAMQueueP.AMQueueImplP*/AMQueueImplP__0__CancelTask:
 #line 75
@@ -11803,7 +11888,7 @@ static void SchedulerBasicP__TaskBasic__runTask(uint8_t arg_0x2b8b282c7650){
 #line 75
     default:
 #line 75
-      SchedulerBasicP__TaskBasic__default__runTask(arg_0x2b8b282c7650);
+      SchedulerBasicP__TaskBasic__default__runTask(arg_0x2b4dadd41650);
 #line 75
       break;
 #line 75
@@ -11841,17 +11926,76 @@ static void /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__fireTimers(u
   /*HilTimerMilliC.VirtualizeTimerC*/VirtualizeTimerC__0__updateFromTimer__postTask();
 }
 
-# 147 "/home/mrambler/tinyos-main/tos/lib/timer/TransformAlarmC.nc"
-static void /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__Alarm__startAt(/*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type t0, /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type dt)
+# 130 "/home/mrambler/tinyos-main/tos/lib/printf/PrintfP.nc"
+  int printfflush(void )
+#line 130
 {
   { __nesc_atomic_t __nesc_atomic = __nesc_atomic_start();
+#line 131
     {
-      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_t0 = t0;
-      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_dt = dt;
-      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__set_alarm();
+      if (PrintfP__state == PrintfP__S_FLUSHING) 
+        {
+          int __nesc_temp = 
+#line 133
+          SUCCESS;
+
+          {
+#line 133
+            __nesc_atomic_end(__nesc_atomic); 
+#line 133
+            return __nesc_temp;
+          }
+        }
+#line 134
+      if (PrintfP__Queue__empty()) 
+        {
+          int __nesc_temp = 
+#line 135
+          FAIL;
+
+          {
+#line 135
+            __nesc_atomic_end(__nesc_atomic); 
+#line 135
+            return __nesc_temp;
+          }
+        }
+#line 136
+      PrintfP__state = PrintfP__S_FLUSHING;
     }
-#line 154
+#line 137
     __nesc_atomic_end(__nesc_atomic); }
+  PrintfP__sendNext();
+  return SUCCESS;
+}
+
+#line 119
+static void PrintfP__sendNext(void )
+#line 119
+{
+  int i;
+  printf_msg_t *m = (printf_msg_t *)PrintfP__Packet__getPayload(&PrintfP__printfMsg, sizeof(printf_msg_t ));
+  uint16_t length_to_send = PrintfP__Queue__size() < sizeof(printf_msg_t ) ? PrintfP__Queue__size() : sizeof(printf_msg_t );
+
+#line 123
+  memset(m->buffer, 0, sizeof(printf_msg_t ));
+  for (i = 0; i < length_to_send; i++) 
+    __nesc_hton_uint8(m->buffer[i].nxdata, PrintfP__Queue__dequeue());
+  if (PrintfP__AMSend__send(AM_BROADCAST_ADDR, &PrintfP__printfMsg, sizeof(printf_msg_t )) != SUCCESS) {
+    PrintfP__retrySend__postTask();
+    }
+}
+
+# 135 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
+static void */*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__getPayload(message_t *msg, uint8_t len)
+#line 135
+{
+  if (len > /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__maxPayloadLength()) {
+      return (void *)0;
+    }
+  else {
+      return (void * )msg->data;
+    }
 }
 
 # 53 "/home/mrambler/tinyos-main/tos/system/AMQueueEntryP.nc"
@@ -11923,6 +12067,19 @@ static void SerialP__MaybeScheduleTx(void )
         }
     }
 #line 525
+    __nesc_atomic_end(__nesc_atomic); }
+}
+
+# 147 "/home/mrambler/tinyos-main/tos/lib/timer/TransformAlarmC.nc"
+static void /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__Alarm__startAt(/*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type t0, /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__to_size_type dt)
+{
+  { __nesc_atomic_t __nesc_atomic = __nesc_atomic_start();
+    {
+      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_t0 = t0;
+      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__m_dt = dt;
+      /*HilTimerMilliC.AlarmMilli32C.Transform*/TransformAlarmC__0__set_alarm();
+    }
+#line 154
     __nesc_atomic_end(__nesc_atomic); }
 }
 
@@ -12001,35 +12158,6 @@ static void PrintfP__AMSend__sendDone(message_t *msg, error_t error)
   else {
 #line 148
     PrintfP__retrySend__postTask();
-    }
-}
-
-#line 119
-static void PrintfP__sendNext(void )
-#line 119
-{
-  int i;
-  printf_msg_t *m = (printf_msg_t *)PrintfP__Packet__getPayload(&PrintfP__printfMsg, sizeof(printf_msg_t ));
-  uint16_t length_to_send = PrintfP__Queue__size() < sizeof(printf_msg_t ) ? PrintfP__Queue__size() : sizeof(printf_msg_t );
-
-#line 123
-  memset(m->buffer, 0, sizeof(printf_msg_t ));
-  for (i = 0; i < length_to_send; i++) 
-    __nesc_hton_uint8(m->buffer[i].nxdata, PrintfP__Queue__dequeue());
-  if (PrintfP__AMSend__send(AM_BROADCAST_ADDR, &PrintfP__printfMsg, sizeof(printf_msg_t )) != SUCCESS) {
-    PrintfP__retrySend__postTask();
-    }
-}
-
-# 135 "/home/mrambler/tinyos-main/tos/lib/serial/SerialActiveMessageP.nc"
-static void */*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__getPayload(message_t *msg, uint8_t len)
-#line 135
-{
-  if (len > /*SerialActiveMessageC.AM*/SerialActiveMessageP__0__Packet__maxPayloadLength()) {
-      return (void *)0;
-    }
-  else {
-      return (void * )msg->data;
     }
 }
 
@@ -12383,49 +12511,6 @@ static error_t HdlcTranslateC__SerialFrameComm__putData(uint8_t data)
       HdlcTranslateC__m_data = data;
     }
   return HdlcTranslateC__UartStream__send(&HdlcTranslateC__m_data, 1);
-}
-
-# 130 "/home/mrambler/tinyos-main/tos/lib/printf/PrintfP.nc"
-  int printfflush(void )
-#line 130
-{
-  { __nesc_atomic_t __nesc_atomic = __nesc_atomic_start();
-#line 131
-    {
-      if (PrintfP__state == PrintfP__S_FLUSHING) 
-        {
-          int __nesc_temp = 
-#line 133
-          SUCCESS;
-
-          {
-#line 133
-            __nesc_atomic_end(__nesc_atomic); 
-#line 133
-            return __nesc_temp;
-          }
-        }
-#line 134
-      if (PrintfP__Queue__empty()) 
-        {
-          int __nesc_temp = 
-#line 135
-          FAIL;
-
-          {
-#line 135
-            __nesc_atomic_end(__nesc_atomic); 
-#line 135
-            return __nesc_temp;
-          }
-        }
-#line 136
-      PrintfP__state = PrintfP__S_FLUSHING;
-    }
-#line 137
-    __nesc_atomic_end(__nesc_atomic); }
-  PrintfP__sendNext();
-  return SUCCESS;
 }
 
 # 107 "/home/mrambler/tinyos-main/tos/lib/printf/PutcharP.nc"
