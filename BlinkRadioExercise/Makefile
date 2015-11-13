@@ -1,0 +1,2 @@
+COMPONENT=BlinkRadioAppC
+include $(MAKERULES)
