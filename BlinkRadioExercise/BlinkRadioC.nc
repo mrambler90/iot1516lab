@@ -9,6 +9,7 @@ module BlinkRadioC @safe()
   uses interface Packet;
   uses interface AMPacket;
   uses interface AMSend;
+  uses interface Receive;
   uses interface SplitControl as AMControl;
 }
 implementation
@@ -24,7 +25,7 @@ implementation
 
   bool busy = FALSE;  // signal to get whether the radio is busy or not
   message_t pkt;      // the packet buffer
-
+  int target = 1;     // set the target node ID here
 
 
 
@@ -62,7 +63,8 @@ implementation
 
       // packet sending: the radio may be busy for other processes, or it may fail someway else!
       // the message is broadcasted, so everybody can read it
-      if (call AMSend.send(AM_BROADCAST_ADDR, &pkt, sizeof(BlinkToRadioMsg)) == SUCCESS) {
+      //if (call AMSend.send(AM_BROADCAST_ADDR, &pkt, sizeof(BlinkToRadioMsg)) == SUCCESS) {
+      if (call AMSend.send(target, &pkt, sizeof(BlinkToRadioMsg)) == SUCCESS) {
         busy = TRUE;
       }
     }
@@ -71,13 +73,29 @@ implementation
 
   event void AMSend.sendDone(message_t *msg, error_t err) {
     if (&pkt == msg && err == SUCCESS) {
+      BlinkToRadioMsg *packet = (BlinkToRadioMsg *)(call Packet.getPayload(msg, sizeof(BlinkToRadioMsg)));
       busy = FALSE;
-      printf("Message %d sent correctly!", (int)msg->data);
+      printf("Message %u sent correctly!\n", packet->counter);
       call Leds.set(++counter);
     }
     else {
-      printf("Error in sending packet: %d.", (int)err);
+      printf("Error in sending packet: %d.\n", (int)err);
     }
+  }
+
+  event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len) {
+    if (len == sizeof(BlinkToRadioMsg)) {
+      BlinkToRadioMsg* pointer = (BlinkToRadioMsg*)payload;
+      am_addr_t senderID = call AMPacket.destination(msg);
+      am_addr_t sourceID = call AMPacket.source(msg);
+      if (senderID == TOS_NODE_ID) {
+        printf("Received message %d for me!\n", (int)pointer->counter);
+      }
+      else {
+        printf("This packet %d is not for me, but it's from %u to %u!\n", (int)pointer->counter, sourceID, senderID);
+      }
+    }
+    return msg;
   }
 
 }
