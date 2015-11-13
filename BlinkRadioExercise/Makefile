@@ -1,2 +1,4 @@
 COMPONENT=BlinkRadioAppC
+CFLAGS += -I$(TINYOS_OS_DIR)/tos/lib/printf
+CFLAGS += -DPRINTF_BUFFER=42
 include $(MAKERULES)
