@@ -25,7 +25,7 @@ implementation
 
   bool busy = FALSE;  // signal to get whether the radio is busy or not
   message_t pkt;      // the packet buffer
-  int target = 1;     // set the target node ID here
+  int target = 6;     // set the target node ID here
 
 
 

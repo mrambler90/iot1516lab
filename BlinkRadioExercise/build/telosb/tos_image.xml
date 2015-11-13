@@ -1,13 +1,13 @@
 <tos_image>
   <ident>
-    <hostname>mrambler-ThinkP</hostname>
-    <deluge_support>no</deluge_support>
     <platform>telosb</platform>
-    <userhash>D94F0756L</userhash>
-    <username>mrambler</username>
-    <timestamp>56460C04L</timestamp>
-    <uidhash>7E5957A2L</uidhash>
+    <deluge_support>no</deluge_support>
+    <timestamp>564610B0L</timestamp>
     <appname>BlinkRadioAppC</appname>
+    <uidhash>BF15B80CL</uidhash>
+    <hostname>mrambler-ThinkP</hostname>
+    <username>mrambler</username>
+    <userhash>D94F0756L</userhash>
   </ident>
   <image format="ihex">
 :104000005542200135D0085A82458A143140003982
@@ -1118,7 +1118,7 @@
 :0C850600009C0208286E756C6C290000B7
 :1085120001FFFFFF2200010001FFFFFF0900101011
 :108522002008030001FFFF004A124A127E12FF01D7
-:10853200010001001200841020080300020012A2B0
+:10853200060001001200841020080300020012A2AB
 :02854200010036
 :10FFE0007245027724759E740E76347416747245C9
 :10FFF0000C78B0777245724578745A747245004037
