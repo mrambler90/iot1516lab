@@ -1,0 +1,4 @@
+COMPONENT=BlinkPrintfAppC
+CFLAGS += -I$(TINYOS_OS_DIR)/tos/lib/printf
+CFLAGS += -DPRINTF_BUFFER=6042
+include $(MAKERULES)
