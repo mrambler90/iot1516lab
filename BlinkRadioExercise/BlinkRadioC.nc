@@ -37,7 +37,9 @@ implementation {
       call AMControl.start();
     }
   }
-  event void AMControl.stopDone(error_t err) {}
+
+  event void AMControl.stopDone(error_t err) {
+  }
 
 
 
@@ -60,10 +62,8 @@ implementation {
       } else {
         printf("Counter value to %u not sent!", DESTID); printfflush();
       }
-
     }
   }
-
 
   event void AMSend.sendDone(message_t *msg, error_t err) {
     if (&pkt == msg && err == SUCCESS) {
@@ -80,13 +80,13 @@ implementation {
   event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len) {
     if (len == sizeof(BlinkToRadioMsg)) {
       BlinkToRadioMsg* pointer = (BlinkToRadioMsg*)payload;
-      am_addr_t senderID = call AMPacket.destination(msg);
+      am_addr_t targetID = call AMPacket.destination(msg);
       am_addr_t sourceID = call AMPacket.source(msg);
-      if (senderID == TOS_NODE_ID) {
+      if (targetID == TOS_NODE_ID) {
         printf("Received message %d for me!\n", (int)pointer->counter);
       }
       else {
-        printf("This packet %d is not for me, but it's from %u to %u!\n", (int)pointer->counter, sourceID, senderID);
+        printf("This packet %d is not for me, but it's from %u to %u!\n", (int)pointer->counter, sourceID, targetID);
       }
     }
     return msg;
