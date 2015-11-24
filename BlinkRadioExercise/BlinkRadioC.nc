@@ -1,8 +1,7 @@
 #include "Timer.h"
 #include "BlinkRadio.h"
 
-module BlinkRadioC @safe()
-{
+module BlinkRadioC @safe() {
   uses interface Timer<TMilli> as Timer0;
   uses interface Leds;
   uses interface Boot;
@@ -12,8 +11,7 @@ module BlinkRadioC @safe()
   uses interface Receive;
   uses interface SplitControl as AMControl;
 }
-implementation
-{
+implementation {
 
   // nx_ is a common endian-ness and word format
   // just to avoid problems in different platforms
@@ -25,10 +23,8 @@ implementation
 
   bool busy = FALSE;  // signal to get whether the radio is busy or not
   message_t pkt;      // the packet buffer
-  int target = 6;     // set the target node ID here
 
-  event void Boot.booted()
-  {
+  event void Boot.booted() {
     call AMControl.start();             // start the radio module
   }
 
@@ -41,13 +37,11 @@ implementation
       call AMControl.start();
     }
   }
-  event void AMControl.stopDone(error_t err) {
-  }
+  event void AMControl.stopDone(error_t err) {}
 
 
 
-  event void Timer0.fired()
-  {
+  event void Timer0.fired() {
 
     // radio transmission, if MY former trasmission is not completed yet
     if (!busy) {
