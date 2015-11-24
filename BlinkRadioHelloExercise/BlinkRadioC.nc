@@ -1,8 +1,7 @@
 #include "Timer.h"
 #include "BlinkRadio.h"
 
-module BlinkRadioC @safe()
-{
+module BlinkRadioC @safe() {
   uses interface Timer<TMilli> as Timer0;
   uses interface Leds;
   uses interface Boot;
@@ -12,43 +11,37 @@ module BlinkRadioC @safe()
   uses interface Receive;
   uses interface SplitControl as AMControl;
 }
-implementation
-{
-
-  // nx_ is a common endian-ness and word format
-  // just to avoid problems in different platforms
-  // we must use it in every piece of code if possible
-
-  // Active Message allows multiplexing (nice)
+implementation {
 
   uint32_t counter = 0;
 
-  bool busy = FALSE;  // signal to get whether the radio is busy or not
-  message_t pkt;      // the packet buffer
-  int target = 6;     // set the target node ID here
+  bool busy = FALSE;      // signal to get whether the radio is busy or not
+  message_t pkt;          // the packet buffer
+  char* hello = "HELLO";  // the string HELLO to be sent in the packet payload
 
-  event void Boot.booted()
-  {
+
+  event void Boot.booted() {
     call AMControl.start();             // start the radio module
   }
 
 
   event void AMControl.startDone(error_t err) {
-    if (err == SUCCESS) {   // the radio is turned on
+    if (err == SUCCESS) {
+      // the radio is turned on
       call Timer0.startPeriodic(TIMER_PERIOD_MILLI);
+      printf("Timer started\n"); printfflush();
     }
-    else {                  // otherwise, retry turning the radio on
+    else {
+      // otherwise, retry turning the radio on
       call AMControl.start();
     }
   }
-  event void AMControl.stopDone(error_t err) {
-  }
 
 
+  event void AMControl.stopDone(error_t err) {}
 
-  event void Timer0.fired()
-  {
 
+  event void Timer0.fired() {
     // radio transmission, if MY former trasmission is not completed yet
     if (!busy) {
       // preparing the packet: retrieving the payload from the pkt packet,
@@ -57,16 +50,13 @@ implementation
 
       // writing the data in the message
       packet->nodeid = TOS_NODE_ID;
-      packet->counter = counter;
+      strncpy((char *)packet->message, hello, strlen(hello));
 
-      // packet sending: the radio may be busy for other processes, or it may fail someway else!
-      // the message is sent to the DESTID mote, so everybody can read it
       if (call AMSend.send(DESTID, &pkt, sizeof(BlinkToRadioMsg)) == SUCCESS) {
         busy = TRUE;
       } else {
-        printf("Counter value to %u not sent!", DESTID); printfflush();
+        printf("HELLO Message to %u not sent!", DESTID); printfflush();
       }
-
     }
   }
 
@@ -75,7 +65,7 @@ implementation
     if (&pkt == msg && err == SUCCESS) {
       BlinkToRadioMsg *packet = (BlinkToRadioMsg *)(call Packet.getPayload(msg, sizeof(BlinkToRadioMsg)));
       busy = FALSE;
-      printf("Message %u sent correctly!\n", packet->counter);
+      printf("Message %s sent correctly to %u!\n", (char*)packet->message, call AMPacket.destination(msg));
       call Leds.set(++counter);
     }
     else {
@@ -86,13 +76,18 @@ implementation
   event message_t* Receive.receive(message_t* msg, void* payload, uint8_t len) {
     if (len == sizeof(BlinkToRadioMsg)) {
       BlinkToRadioMsg* pointer = (BlinkToRadioMsg*)payload;
-      am_addr_t senderID = call AMPacket.destination(msg);
-      am_addr_t sourceID = call AMPacket.source(msg);
-      if (senderID == TOS_NODE_ID) {
-        printf("Received message %d for me!\n", (int)pointer->counter);
+      am_addr_t dstID = call AMPacket.destination(msg);
+      am_addr_t srcID = call AMPacket.source(msg);
+      if (dstID == TOS_NODE_ID) {
+        printf("Received message %s for me!\n", (char*)pointer->message);
+        if (strcmp("HELLO", (char*)pointer->message) == 0) {
+          printf("Correct HELLO message received.\n"); printfflush();
+        }
+        else
+          printf("Wrong message received: non-HELLO message.\n"); printfflush();
       }
       else {
-        printf("This packet %d is not for me, but it's from %u to %u!\n", (int)pointer->counter, sourceID, senderID);
+        printf("This packet %s is not for me, but it's from %u to %u!\n", (char*)pointer->message, srcID, dstID);
       }
     }
     return msg;
