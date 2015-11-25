@@ -7,8 +7,8 @@ enum {
 };
 
 typedef nx_struct BlinkToRadioMsg {
-  nx_uint16_t nodeid;
-  nx_uint8_t message[10];
+	nx_uint16_t nodeid;
+	nx_uint8_t message[10];
 } BlinkToRadioMsg;
 
 void ascii2int8(char* str, nx_uint8_t* dst, nx_uint16_t len) {
