@@ -79,12 +79,11 @@ implementation {
       am_addr_t dstID = call AMPacket.destination(msg);
       am_addr_t srcID = call AMPacket.source(msg);
       if (dstID == TOS_NODE_ID) {
-        printf("Received message %s for me!\n", (char*)pointer->message);
         if (strcmp("HELLO", (char*)pointer->message) == 0) {
-          printf("Correct HELLO message received.\n"); printfflush();
+          printf("Correct HELLO message received from %u.\n", srcID); printfflush();
         }
         else
-          printf("Wrong message received: non-HELLO message.\n"); printfflush();
+          printf("Wrong message received: %s.\n", (char*)pointer->message); printfflush();
       }
       else {
         printf("This packet %s is not for me, but it's from %u to %u!\n", (char*)pointer->message, srcID, dstID);
