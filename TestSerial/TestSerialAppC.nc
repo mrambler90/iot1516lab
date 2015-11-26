@@ -1,4 +1,4 @@
-// $Id: BlinkC.nc,v 1.6 2010-06-29 22:07:16 scipio Exp $
+// $Id: TestSerialAppC.nc,v 1.6 2010-06-29 22:07:25 scipio Exp $
 
 /*									tab:4
  * Copyright (c) 2000-2005 The Regents of the University  of California.
@@ -31,7 +31,7 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
  * OF THE POSSIBILITY OF SUCH DAMAGE.
  *
- * Copyright (c) 2002-2003 Intel Corporation
+ * Copyright (c) 2002-2005 Intel Corporation
  * All rights reserved.
  *
  * This file is distributed under the terms in the attached INTEL-LICENSE
@@ -40,15 +40,40 @@
  * 94704.  Attention:  Intel License Inquiry.
  */
 
-#include "Timer.h"
+/**
+ * Application to test that the TinyOS java toolchain can communicate
+ * with motes over the serial port. The application sends packets to
+ * the serial port at 1Hz: the packet contains an incrementing
+ * counter. When the application receives a counter packet, it
+ * displays the bottom three bits on its LEDs. This application is
+ * very similar to RadioCountToLeds, except that it operates over the
+ * serial port. There is Java application for testing the mote
+ * application: run TestSerial to print out the received packets and
+ * send packets to the mote.
+ *
+ *  @author Gilman Tolle
+ *  @author Philip Levis
+ *
+ *  @date   Aug 12 2005
+ *
+ **/
 
-module TempC @safe()
-{
-  uses interface Timer<TMilli> as Timer0;
-  uses interface Leds;
-  uses interface Boot;
-}
-implementation
-{
+#define NEW_PRINTF_SEMANTICS
+#include "TestSerial.h"
+#include "printf.h"
 
+configuration TestSerialAppC {}
+implementation {
+  components TestSerialC as App, LedsC, MainC;
+  components SerialActiveMessageC as AM;
+  components PrintfC, SerialStartC;
+  components new TimerMilliC();
+
+  App.Boot -> MainC.Boot;
+  App.Control -> AM;
+  App.Receive -> AM.Receive[AM_TEST_SERIAL_MSG];
+  App.AMSend -> AM.AMSend[AM_TEST_SERIAL_MSG];
+  App.Leds -> LedsC;
+  App.MilliTimer -> TimerMilliC;
+  App.Packet -> AM;
 }
