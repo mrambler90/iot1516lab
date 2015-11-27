@@ -7,6 +7,7 @@ CFLAGS += -DPRINTF_BUFFER=42
 
 # writing the command-line parameter DEST=X value X
 # into the constant DESTID
+DEST=65535U
 CFLAGS += -DDESTID=$(DEST)
 
 # import the path for the tinyos Make rules

@@ -11,6 +11,10 @@ typedef nx_struct BlinkToRadioMsg {
 	nx_uint8_t message[10];
 } BlinkToRadioMsg;
 
+/*
+	unused function: converts an ASCII string into
+	an unsigned-8-bit array
+*/
 void ascii2int8(char* str, nx_uint8_t* dst, nx_uint16_t len) {
 	int i = 0;
 

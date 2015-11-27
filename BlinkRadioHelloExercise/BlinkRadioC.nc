@@ -85,6 +85,7 @@ implementation {
 				else {
 					printf("Wrong message received: %s.\n", (char*)pointer->message); printfflush();
 				}
+			}
 			else {
 				printf("This packet %s is not for me, but it's from %u to %u!\n", (char*)pointer->message, srcID, dstID);
 			}
