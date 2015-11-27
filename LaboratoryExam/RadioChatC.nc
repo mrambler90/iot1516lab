@@ -1,112 +1,127 @@
-// $Id: TestSerialC.nc,v 1.7 2010-06-29 22:07:25 scipio Exp $
-
-/*									tab:4
- * Copyright (c) 2000-2005 The Regents of the University  of California.
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- *
- * - Redistributions of source code must retain the above copyright
- *   notice, this list of conditions and the following disclaimer.
- * - Redistributions in binary form must reproduce the above copyright
- *   notice, this list of conditions and the following disclaimer in the
- *   documentation and/or other materials provided with the
- *   distribution.
- * - Neither the name of the University of California nor the names of
- *   its contributors may be used to endorse or promote products derived
- *   from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL
- * THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
- * INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
- * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
- *
- * Copyright (c) 2002-2003 Intel Corporation
- * All rights reserved.
- *
- * This file is distributed under the terms in the attached INTEL-LICENSE
- * file. If you do not find these files, copies can be found by writing to
- * Intel Research Berkeley, 2150 Shattuck Avenue, Suite 1300, Berkeley, CA,
- * 94704.  Attention:  Intel License Inquiry.
- */
-
-/**
- * Application to test that the TinyOS java toolchain can communicate
- * with motes over the serial port.
- *
- *  @author Gilman Tolle
- *  @author Philip Levis
- *
- *  @date   Aug 12 2005
- *
- **/
-
 #include "Timer.h"
 #include "RadioChat.h"
 
 module RadioChatC {
 	uses {
-		interface SplitControl as Control;
-		interface Leds;
+		// general wiring
 		interface Boot;
-		interface Receive;
-		interface AMSend;
-		interface Timer<TMilli> as Timer0;
-		interface Packet;
+		interface Leds;
+
+		// radio wiring
+	    interface SplitControl as RadioControl;
+		interface AMSend as RadioSend;
+		interface Packet as RadioPacket;
+		interface Receive as RadioReceive;
+
+		// serial wiring
+		interface SplitControl as SerialControl;
+		interface Packet as SerialPacket;
+		interface Receive as SerialReceive;
+		interface AMSend as SerialSend;
+
+		interface PacketLink;
+
 	}
 }
 implementation {
 
-	message_t packet;
-	uint32_t counter;
-	bool locked = FALSE;
-	radio_chat_t *pkt;
+	bool radio_locked = FALSE;
+	bool serial_locked = FALSE;
+
+	message_t radio_packet;
+	radio_chat_t *serial_pkt;
+
+	message_t serial_packet;
+	radio_chat_t *radio_pkt;
 
 	event void Boot.booted() {
-		call Control.start();
+		call SerialControl.start();
+		call RadioControl.start();
 	}
 
-	event void Timer0.fired() {
-		counter++;
-		if (locked) { return; }
+	/*
+		Event triggered when the mote radio receives a message
+		from the sink node.
+
+		It relays the message to the serial client.
+	*/
+	event message_t* RadioReceive.receive(message_t* bufPtr, void* payload, uint8_t len) {
+		if (radio_locked) { return bufPtr; }
 		else {
-			pkt = (radio_chat_t*)call Packet.getPayload(&packet, sizeof(radio_chat_t));
-			if (pkt == NULL) {return;}
-			if (call Packet.maxPayloadLength() < sizeof(radio_chat_t)) {
-				return;
-			}
+			serial_pkt = (radio_chat_t*)call SerialPacket.getPayload(&serial_packet, sizeof(radio_chat_t));
+			radio_pkt = (radio_chat_t*)call RadioPacket.getPayload(&radio_packet, sizeof(radio_chat_t));
+			if (serial_pkt == NULL || radio_pkt == NULL) { return bufPtr; }
 
-			pkt->nodeID = TOS_NODE_ID;
-			if (call AMSend.send(DESTID, &packet, sizeof(radio_chat_t)) == SUCCESS) {
-				locked = TRUE;
-			}
-		}
-	}
+			// if the packet can't be relayed because it's too big, then return
+			if (call SerialPacket.maxPayloadLength() < sizeof(radio_chat_t)) { return bufPtr; }
 
-	event message_t* Receive.receive(message_t* bufPtr, void* payload, uint8_t len) {
-		if (len != sizeof(radio_chat_t)) {
+			// fill the serial payload
+			serial_pkt->nodeID = TOS_NODE_ID;
+			strncpy(serial_pkt->message, radio_pkt->message, strlen(serial_pkt->message));
+			if (call SerialSend.send(AM_BROADCAST_ADDR, &serial_packet, sizeof(radio_chat_t)) == SUCCESS) {
+				radio_locked = TRUE; call Leds.led0Toggle();
+			}
 		}
 
 		return bufPtr;
 	}
 
-	event void AMSend.sendDone(message_t* bufPtr, error_t error) {
-		if (&packet == bufPtr) { locked = FALSE; }
+	/*
+		Event triggered when the mote radio receives a message
+		from the serial client.
+
+		It relays the packet to the sink node through the radio.
+	*/
+	event message_t* SerialReceive.receive(message_t* bufPtr, void* payload, uint8_t len) {
+		if (serial_locked) { return bufPtr; }
+		else {
+			serial_pkt = (radio_chat_t*)call SerialPacket.getPayload(&serial_packet, sizeof(radio_chat_t));
+			radio_pkt = (radio_chat_t*)call RadioPacket.getPayload(&radio_pkt, sizeof(radio_chat_t));
+			if (serial_pkt == NULL || radio_pkt == NULL) { return bufPtr; }
+
+			// if the packet can't be relayed because it's too big, then return
+			if (call RadioPacket.maxPayloadLength() < sizeof(radio_chat_t)) { return bufPtr; }
+
+			// fill the radio payload
+			radio_pkt->nodeID = TOS_NODE_ID;
+			strncpy(radio_pkt->message, serial_pkt->message, strlen(serial_pkt->message));
+			call PacketLink.setRetries(&radio_packet, 50);
+			call PacketLink.setRetryDelay(&radio_packet, 100);
+			if (call RadioSend.send(DESTID, &radio_packet, sizeof(radio_chat_t)) == SUCCESS) {
+				serial_locked = TRUE;
+			}
+		}
+
+		return bufPtr;
 	}
 
-	event void Control.startDone(error_t err) {
-		if (err == SUCCESS) { call Timer0.startPeriodic(1000); }
+	/*
+		Event triggered when the mote radio starts sending
+		data to the serial client. It just unlocks the radio component.
+	*/
+	event void RadioSend.sendDone(message_t* bufPtr, error_t error) {
+		if (&radio_packet == bufPtr) { radio_locked = FALSE; }
 	}
 
-	event void Control.stopDone(error_t err) {}
+	/*
+		Event triggered when the mote radio starts sending
+		data to the serial client. It just unlocks the serial component.
+	*/
+	event void SerialSend.sendDone(message_t* bufPtr, error_t error) {
+		if (&serial_packet == bufPtr) { serial_locked = FALSE; }
+	}
+
+	event void RadioControl.startDone(error_t err) {
+		if (err == SUCCESS) {}
+		else { call RadioControl.start(); }
+	}
+
+	event void RadioControl.stopDone(error_t err) {}
+
+	event void SerialControl.startDone(error_t err) {
+		if (err == SUCCESS) {}
+		else { call SerialControl.start(); }
+	}
+
+	event void SerialControl.stopDone(error_t err) {}
 }

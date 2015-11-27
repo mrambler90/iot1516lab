@@ -8,8 +8,8 @@ typedef nx_struct radio_chat {
 
 enum {
 	AM_BLINKTORADIO = 6,
-	TIMER_PERIOD_MILLI = 250,
-	AM_RADIO_MSG_ID = 0x99
+	TIMER_PERIOD_MILLI = 500,
+	AM_RADIO_CHAT = 0x99
 };
 
 #endif
