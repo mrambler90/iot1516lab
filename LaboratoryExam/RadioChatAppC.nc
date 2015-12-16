@@ -28,7 +28,7 @@ implementation {
 	// serial communication wiring
 	App.SerialControl -> SAM;
 	App.SerialPacket -> SAM;
-	App.SerialReceive -> SAM.Receive[AM_RADIO_CHAT];
-	App.SerialSend -> SAM.AMSend[AM_RADIO_CHAT];
+	App.SerialReceive -> SAM.Receive[AM_CHAT_MSG];
+	App.SerialSend -> SAM.AMSend[AM_CHAT_MSG];
 
 }

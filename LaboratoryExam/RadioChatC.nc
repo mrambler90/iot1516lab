@@ -8,7 +8,7 @@ module RadioChatC {
 		interface Leds;
 
 		// radio wiring
-	    interface SplitControl as RadioControl;
+		interface SplitControl as RadioControl;
 		interface AMSend as RadioSend;
 		interface Packet as RadioPacket;
 		interface Receive as RadioReceive;
@@ -112,14 +112,14 @@ implementation {
 	}
 
 	event void RadioControl.startDone(error_t err) {
-		if (err == SUCCESS) {}
+		if (err == SUCCESS) { radio_locked = FALSE; }
 		else { call RadioControl.start(); }
 	}
 
 	event void RadioControl.stopDone(error_t err) {}
 
 	event void SerialControl.startDone(error_t err) {
-		if (err == SUCCESS) {}
+		if (err == SUCCESS) { serial_locked = FALSE; }
 		else { call SerialControl.start(); }
 	}
 
